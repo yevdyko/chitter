@@ -1,4 +1,7 @@
-<form action="/peeps" method="post">
-  Message: <input name="message" type="text">
-<input type="submit" value="Peep">
+<h1> Write a Peep </h1>
+<% if current_user %>
+<form action='/peeps' method='post'>
+  <label for='message'> Message: <input type='message' name='message'></label>
+  <input type='submit' value='Peep'>
 </form>
+<% end %>
