@@ -1,10 +1,5 @@
 describe User do
-  let!(:user) do
-    User.create(full_name: 'Incredible Yev',
-                email: 'incredible@yev.com',
-                password: 'bla-bla-bla',
-                password_confirmation: 'bla-bla-bla')
-  end
+  let(:user) { create :user }
 
   it 'authenticates when given a valid email address and password' do
     authenticated_user = User.authenticate(user.email, user.password)
@@ -12,6 +7,6 @@ describe User do
   end
 
   it 'does not authenticate when given an incorrect password' do
-    expect(User.authenticate(user.email, 'bla-bla-blu')).to be_nil
+    expect(User.authenticate(user.email, 'wrong')).to be_nil
   end
 end

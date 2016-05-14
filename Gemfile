@@ -8,7 +8,6 @@ gem 'dm-postgres-adapter'
 gem 'rake'
 gem 'bcrypt'
 
-
 group :test do
   gem 'guard-rspec'
   gem 'rspec'
@@ -19,4 +18,5 @@ group :test do
   gem 'rubocop-rspec'
   gem 'rubocop'
   gem 'coveralls', require: false
+  gem 'factory_girl'
 end
