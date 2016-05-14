@@ -1,4 +1,4 @@
-ENV["RACK_ENV"] ||= "development"
+ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require 'sinatra/flash'
@@ -8,12 +8,10 @@ require_relative 'controllers/users'
 require_relative 'controllers/sessions'
 require_relative 'controllers/peeps'
 
-
-
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
-  set :views, Proc.new { File.join(root, "../views") }
+  set :views, Proc.new { File.join(root, '../views') }
 
   register Sinatra::Flash
   use Rack::MethodOverride
