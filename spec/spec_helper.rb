@@ -1,12 +1,6 @@
 require 'coveralls'
 require 'simplecov'
 
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear!
-
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
 require 'capybara'
@@ -22,6 +16,12 @@ require_relative 'support/helper_methods'
 include HelperMethods
 
 ENV['RACK_ENV'] = 'test'
+
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+Coveralls.wear!
 
 Capybara.app = Chitter
 

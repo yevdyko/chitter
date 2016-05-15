@@ -1,4 +1,5 @@
 class Chitter < Sinatra::Base
+
   get '/peeps' do
     @peeps = Peep.all
     erb :'peeps/index'
@@ -12,6 +13,7 @@ class Chitter < Sinatra::Base
     peep = Peep.create(message: params[:message])
     current_user.peeps << peep
     current_user.save
-    redirect to('/peeps')
+    redirect to '/peeps'
   end
+
 end

@@ -24,4 +24,5 @@ module HelperMethods
     fill_in :message, with: text.message
     click_button 'Peep'
   end
+
 end
