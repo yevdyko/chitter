@@ -1,0 +1,8 @@
+- if flash[:notice]
+  = flash[:notice]
+
+- if flash[:errors] && !flash[:errors].empty?
+  Please refer to the following errors below:
+  %ul#errors
+    - flash[:errors].each do |error|
+      %li=error

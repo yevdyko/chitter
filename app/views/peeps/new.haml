@@ -1,0 +1,5 @@
+%h1 Write a Peep
+- if current_user
+  %form{action: '/peeps', method: 'POST'}
+    %input{type: 'text', placeholder: "What's on your mind?" , name: 'message'}
+    %input{type: 'submit', value: 'Peep'}

@@ -3,6 +3,7 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra/partial'
+require 'haml'
 
 require_relative 'data_mapper_setup'
 
@@ -17,9 +18,9 @@ class Chitter < Sinatra::Base
   enable :partial_underscores
 
   set :session_secret, 'super secret'
-  set :partial_template_engine, :erb
 
   set :views, Proc.new { File.join(root, '../views') }
+
 
   register Sinatra::Flash
   register Sinatra::Partial
@@ -29,9 +30,7 @@ class Chitter < Sinatra::Base
   helpers Helpers
 
   get '/' do
-    redirect to '/peeps' if current_user
-    @user = User.new
-    erb :index
+    redirect to '/peeps'
   end
 
   # start the server if ruby file executed directly

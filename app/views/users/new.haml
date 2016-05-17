@@ -1,0 +1,13 @@
+%h1 Join Chitter today.
+
+%form{action: '/users', method: 'POST'}
+  %p
+    %input{type: 'text', placeholder: 'Full name', name: 'full_name', value: "#{@user.full_name}", required: true}
+  %p
+    %input{type: 'email', placeholder: 'Email', name: 'email', value: "#{@user.email}", required: true}
+  %p
+    %input{type: 'password', placeholder: 'Password', name: 'password', value: "#{@user.password}", required: true}
+  %p
+    %input{type: 'password', placeholder: 'Password confirmation', name: 'password_confirmation', required: true}
+  %p
+    %input{type: 'submit', value: 'Sign up', required: true}

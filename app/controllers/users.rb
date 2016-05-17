@@ -2,7 +2,7 @@ class Chitter < Sinatra::Base
 
   get '/users/new' do
     @user = User.new
-    erb :'users/new'
+    haml :'users/new'
   end
 
   post '/users' do
@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
       redirect to '/'
     else
       flash.now[:errors] = @user.errors.full_messages
-      erb :'users/new'
+      haml :'users/new'
     end
   end
 

@@ -8,8 +8,10 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'rake'
 gem 'bcrypt'
+gem 'haml'
+gem 'sass'
 
-group :test do
+group :test, :development do
   gem 'guard-rspec'
   gem 'rspec'
   gem 'capybara'
@@ -20,4 +22,5 @@ group :test do
   gem 'rubocop'
   gem 'coveralls', require: false
   gem 'factory_girl'
+  gem 'shotgun'
 end
