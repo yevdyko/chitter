@@ -10,6 +10,7 @@
         %input{type: 'hidden', name: '_method', value: 'delete'}
         %input{type: 'submit', value: 'Log out'}
 
-    = partial :'partials/_flash_errors'
+    = partial :'partials/navbar'
+    = partial :'partials/flash_errors'
 
     = yield

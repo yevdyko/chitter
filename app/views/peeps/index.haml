@@ -1,5 +1,5 @@
 %h1 Peeps
-%ul#peeps
-  - @peeps.each do | peep |
-    %li= peep.message
+%ul#peeps__list
+  - @peeps.reverse.each do | peep |
+    %li#peeps__item= peep.message
 %a{href: '/peeps/new'} Write a Peep!
