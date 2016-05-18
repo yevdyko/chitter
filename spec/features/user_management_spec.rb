@@ -5,7 +5,7 @@ feature 'User signs up' do
   scenario 'when being a new user visiting the site' do
     user = build :user
     expect { sign_up_as user }.to change(User, :count).by(1)
-    expect(page).to have_content "Welcome, #{user.full_name}!"
+    expect(page).to have_content "Welcome, #{user.name}!"
     expect(User.first.email).to eq "#{user.email}"
   end
 
@@ -16,11 +16,25 @@ feature 'User signs up' do
     expect(page).to have_content 'Password does not match the confirmation'
   end
 
-  scenario 'without filling in a full name' do
-    user = build(:user, full_name: nil)
+  scenario 'without filling in a name' do
+    user = build(:user, name: nil)
     expect { sign_up_as user }.not_to change(User, :count)
     expect(current_path).to eq '/users'
-    expect(page).to have_content 'Full name must not be blank'
+    expect(page).to have_content 'Name must not be blank'
+  end
+
+  scenario 'without filling in a username' do
+    user = build(:user, username: nil)
+    expect { sign_up_as user }.not_to change(User, :count)
+    expect(current_path).to eq '/users'
+    expect(page).to have_content 'Username must not be blank'
+  end
+
+  scenario 'with a username that is already registered' do
+    user = build :user
+    sign_up_as user
+    expect { sign_up_as user }.to_not change(User, :count)
+    expect(page).to have_content 'Username is already taken'
   end
 
   scenario 'without filling in an email' do
@@ -52,7 +66,7 @@ feature 'User logs in' do
   scenario 'with correct credentials' do
     user = create :user
     log_in_as user
-    expect(page).to have_content "Welcome, #{user.full_name}!"
+    expect(page).to have_content "Welcome, #{user.name}!"
   end
 
   scenario 'with incorrect credentials' do
@@ -70,7 +84,7 @@ feature 'User logs out' do
     user = create :user
     log_in_as user
     click_button 'Log out'
-    expect(page).to have_content "Goodbye, #{user.full_name}!"
-    expect(page).not_to have_content "Welcome, #{user.full_name}!"
+    expect(page).to have_content "Goodbye, #{user.name}!"
+    expect(page).not_to have_content "Welcome, #{user.name}!"
   end
 end

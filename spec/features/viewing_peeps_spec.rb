@@ -8,13 +8,29 @@ feature 'User sees all peeps' do
   # As a user
   # So that I can be sure that peeps are placed in reverse order
   # I want to see my last peep at the top
-  scenario 'when visiting the homepage' do
+  scenario 'in reverse chronological order' do
     other_text = build(:text, message: 'My second peep')
     log_in_as user
     add_peep_with text
     add_peep_with other_text
-    within('li#peeps__item', match: :first) do
+    within('li.peeps__item', match: :first) do
       expect(page).to have_content 'My second peep'
+    end
+  end
+
+  scenario 'with the name of the author' do
+    log_in_as user
+    add_peep_with text
+    within('li.peeps__item') do
+      expect(page).to have_content "#{user.name}"
+    end
+  end
+
+  scenario 'with the username of the author' do
+    log_in_as user
+    add_peep_with text
+    within('li.peeps__item') do
+      expect(page).to have_content "@#{user.username}"
     end
   end
 end

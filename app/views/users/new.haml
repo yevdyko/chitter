@@ -2,7 +2,9 @@
 
 %form{action: '/users', method: 'POST'}
   %p
-    %input{type: 'text', placeholder: 'Full name', name: 'full_name', value: "#{@user.full_name}", required: true}
+    %input{type: 'text', placeholder: 'Full name', name: 'name', value: "#{@user.name}", required: true}
+  %p
+    %input{type: 'text', placeholder: 'Username', name: 'username', value: "#{@user.username}", required: true}
   %p
     %input{type: 'email', placeholder: 'Email', name: 'email', value: "#{@user.email}", required: true}
   %p

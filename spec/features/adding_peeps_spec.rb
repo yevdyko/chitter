@@ -9,7 +9,7 @@ feature 'User adds a new peep' do
     log_in_as user
     add_peep_with text
     expect(current_path).to eq '/peeps'
-    within 'li#peeps__item' do
+    within 'li.peeps__item' do
       expect(page).to have_content "#{text.message}"
     end
   end

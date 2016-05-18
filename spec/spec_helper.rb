@@ -7,6 +7,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'factory_girl'
+require 'timecop'
 require 'database_cleaner'
 require './app/app'
 

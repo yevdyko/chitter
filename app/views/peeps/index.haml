@@ -1,5 +1,9 @@
 %h1 Peeps
-%ul#peeps__list
+%ul.peeps__list
   - @peeps.reverse.each do | peep |
-    %li#peeps__item= peep.message
+    %li.peeps__item
+      %p= peep.user.name
+      %span @#{peep.user.username}
+      %p= peep.created_at
+      %p= peep.message
 %a{href: '/peeps/new'} Write a Peep!
