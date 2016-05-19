@@ -3,10 +3,17 @@ Chitter Challenge
 
 [![Build Status](https://travis-ci.org/yevdyko/chitter-challenge.svg?branch=master)](https://travis-ci.org/yevdyko/chitter-challenge)  [![Coverage Status](https://coveralls.io/repos/github/yevdyko/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/yevdyko/chitter-challenge?branch=master)  [![Code Climate](https://codeclimate.com/github/yevdyko/chitter-challenge/badges/gpa.svg)](https://codeclimate.com/github/yevdyko/chitter-challenge)
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+An application that allows users to post messages to a public stream. The basic requirements were that users should be able to sign up for a new account, log in or out, and post new tweets.
 
-Features:
----------
+Technologies used
+-----------------
+
+- Ruby using Sinatra
+- PostgreSQL database using DataMapper ORM
+- Tested with RSpec and Capybara
+
+User Stories
+------------
 
 ```
 As a Maker
@@ -37,35 +44,61 @@ I want to see the time at which it was made
 Notes on functionality:
 -----------------------
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 * Use bcrypt to secure the passwords.
 * Use data mapper and postgres to save the data.
 * You don't have to be logged in to see the peeps.
 * You only can peep if you are logged in.
-
-Bonus:
-------
-
-If you have time you can implement the following:
-
 * In order to start a conversation as a maker I want to reply to a peep from another maker.
 
-And/Or:
+Setup
+-----
 
-* Work on the css to make it look good (we all like beautiful things).
+Clone the repository:
 
-Installation
-------------
+    $ git clone git@github.com:yevdyko/chitter-challenge.git
 
-1. Clone this repo
-2. Run the command `gem install bundle` (if you don't have bundle already)
-3. When the installation completes, run `bundle`
+Change into the directory:
 
-Running tests
--------------
+    $ cd chitter-challenge
 
-To run the tests use the command `rspec`
+If you don't have bundle already, run the command:
 
+    $ gem install bundle
+
+Install all dependencies with:
+
+    $ bundle
+
+Create a development database:
+
+    $ createdb chitter_development
+
+Setup the database using the rake task:
+
+    $ rake db:auto_migrate
+
+Launch the app:
+
+    $ rackup
+
+Go to your browser and open [http://localhost:9292](http://localhost:9292)
+
+Testing
+-------
+
+Create a test database:
+
+    $ createdb chitter_test
+
+Setup the test database using the rake task:
+
+    $ rake db:auto_migrate RACK_ENV=test
+
+To run the tests:
+
+    $ rspec
+
+Screenshots
+-----------
