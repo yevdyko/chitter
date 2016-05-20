@@ -5,6 +5,7 @@ require 'sinatra/flash'
 require 'sinatra/partial'
 require 'tilt/haml'
 require 'haml'
+require 'time-lord'
 
 require_relative 'data_mapper_setup'
 

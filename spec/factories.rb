@@ -9,5 +9,6 @@ FactoryGirl.define do
 
   factory :text, class: Peep do
     message 'This is my peep'
+    created_at { DateTime.now }
   end
 end

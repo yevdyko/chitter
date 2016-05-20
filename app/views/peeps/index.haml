@@ -4,6 +4,6 @@
     %li.peeps__item
       %p= peep.user.name
       %span @#{peep.user.username}
-      %p= peep.created_at
+      %p= format_time(peep.created_at)
       %p= peep.message
 %a{href: '/peeps/new'} Write a Peep!

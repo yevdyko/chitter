@@ -10,8 +10,13 @@ gem 'rake'
 gem 'bcrypt'
 gem 'haml'
 gem 'sass'
+gem 'time-lord'
 
-group :test, :development do
+group :development do
+  gem 'shotgun'
+end
+
+group :test do
   gem 'guard-rspec'
   gem 'rspec'
   gem 'capybara'
@@ -22,5 +27,5 @@ group :test, :development do
   gem 'rubocop'
   gem 'coveralls', require: false
   gem 'factory_girl'
-  gem 'shotgun'
+  gem 'timecop'
 end

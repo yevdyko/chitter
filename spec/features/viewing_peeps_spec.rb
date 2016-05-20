@@ -33,4 +33,18 @@ feature 'User sees all peeps' do
       expect(page).to have_content "@#{user.username}"
     end
   end
+
+  # As a maker
+  # So that I can better appreciate the context of a peep
+  # I want to see how long ago message was peeped
+  scenario 'with a created date' do
+    time = DateTime.now + 2
+    log_in_as user
+    add_peep_with text
+    Timecop.freeze(time)
+    visit '/peeps'
+    within('li.peeps__item') do
+      expect(page).to have_content '2 days ago'
+    end
+  end
 end
