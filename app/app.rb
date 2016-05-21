@@ -9,10 +9,10 @@ require 'time-lord'
 
 require_relative 'data_mapper_setup'
 
-require_relative 'helpers'
-require_relative 'controllers/users'
-require_relative 'controllers/sessions'
-require_relative 'controllers/peeps'
+require_relative 'helpers/helpers'
+require_relative 'controllers/users_controller'
+require_relative 'controllers/sessions_controller'
+require_relative 'controllers/peeps_controller'
 
 class Chitter < Sinatra::Base
 
@@ -21,8 +21,8 @@ class Chitter < Sinatra::Base
 
   set :session_secret, 'super secret'
 
-  set :views, Proc.new { File.join(root, '../views') }
-
+  set :root, File.dirname(__FILE__)
+  set :views, Proc.new { File.join(root, 'views') }
 
   register Sinatra::Flash
   register Sinatra::Partial
