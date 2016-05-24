@@ -29,3 +29,7 @@ group :test do
   gem 'factory_girl'
   gem 'timecop'
 end
+
+group :production do
+  gem 'pg'
+end
