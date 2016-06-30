@@ -1,7 +1,16 @@
-%ul
-  %li
-    %a{href: '/users/new'} Sign up
-  %li
-    %a{href: '/sessions/new'} Sign in
-  %li
-    %a{href: '/peeps/new'} Write a peep
+%nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      %p.navbar-text Chitter
+    %ul.nav.navbar-nav.navbar-right
+      - if current_user
+        %li
+          %p.navbar-text Welcome, #{current_user.name}!
+        %li
+          %a{href: "/peeps/new"} Write a peep
+        %li
+          %form.navbar-form{action: "/sessions", method: "post"}
+            .form-group
+              %input{name: "_method", type: "hidden", value: "delete"}
+              %input.btn.btn-primary{type: "submit", value: "Log out"}
+
