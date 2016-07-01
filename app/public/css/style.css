@@ -1,13 +1,130 @@
+nav .container-fluid {
+	padding: 0 35px;
+}
+
 .navbar-default {
-  background-color: #ffffff;
+	background-color: #fff;
 }
 
-.navbar-text {
-  color: #e5e5e5;
-  font-size: 20px;
-  font-weight: 700;
+.navbar-brand {
+	font-size: 20px;
 }
 
-.btn {
-  margin-top: 4px;
+.navbar-right {
+	margin-right: 0;
+}
+
+a.username {
+	font-weight: 700;
+
+	padding-right: 0;
+}
+
+.dropdown {
+	margin-right: 15px;
+}
+
+.dropdown-menu:before {
+	position: absolute;
+	top: -9px;
+	right: 15px;
+
+	display: inline-block;
+
+	content: "";
+
+	border-right: 9px solid transparent;
+	border-bottom: 9px solid #ccc;
+	border-bottom-color: rgba(0, 0, 0, .2);
+	border-left: 9px solid transparent;
+}
+
+.dropdown-menu:after {
+	position: absolute;
+	top: -8px;
+	right: 16px;
+
+	display: inline-block;
+
+	content: "";
+
+	border-right: 8px solid transparent;
+	border-bottom: 8px solid #fff;
+	border-left: 8px solid transparent;
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:focus,
+.navbar-default .navbar-nav > .open > a:hover {
+	background-color: transparent;
+}
+
+.nav > li > a {
+	padding-right: 5px;
+}
+
+.navbar-nav > li > .dropdown-menu {
+	margin-top: 3px;
+
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+.add-on .input-group-btn > .btn {
+	left: -1px;
+
+	border-left-width: 0;
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
+	outline: none;
+}
+
+.add-on .input-group-btn > .btn:hover {
+	border-color: #ccc;
+	border-left-width: 0;
+	background-color: #fff;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+}
+
+.add-on .form-control {
+	padding-right: 0;
+
+	border-radius: 25px;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+}
+
+.add-on .form-control:focus {
+	right: 1px;
+
+	border-color: #ccc;
+	border-right-width: 0;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+}
+
+.form-group input[type="submit"] {
+	padding-right: 90px;
+	padding-left: 20px;
+
+	cursor: pointer;
+
+	border: none;
+	background: none;
+}
+
+.form-group input[type="submit"]:focus,
+.form-group input[type="submit"]:hover {
+	text-align: left;
+	text-decoration: none;
+
+	color: #262626;
+	outline: none;
+	background-color: #f5f5f5;
+}
+
+.navbar-form {
+	margin-bottom: 3px;
+	padding: 0;
 }
