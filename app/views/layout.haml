@@ -13,9 +13,11 @@
   %body
     .site-wrapper
       = partial :'partials/navbar'
-      = partial :'partials/welcome'
-      = partial :'partials/login_form'
-      = partial :'partials/signup_form'
+      .container
+        .row
+          = partial :'partials/welcome_text'
+          = partial :'partials/login_form'
+          = partial :'partials/signup_form'
       .containter
         = partial :'partials/flash_errors'
       = yield
