@@ -13,13 +13,13 @@
   %body
     .site-wrapper
       = partial :'partials/navbar'
+      = partial :'partials/flash_errors'
       .container
         .row
           = partial :'partials/welcome_text'
           = partial :'partials/login_form'
           = partial :'partials/signup_form'
-      .containter
-        = partial :'partials/flash_errors'
+      = partial :'partials/footer'
       = yield
       %script{src: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js",
               integrity: "sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS",
