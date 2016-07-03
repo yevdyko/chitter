@@ -1,0 +1,36 @@
+.container
+  .row
+    .col-md-3.col-md-offset-7
+      .registration.panel
+        .panel-heading
+          %h4
+            %strong New to Chitter?
+            Sign up
+        .panel-body
+          %form{action: "/users", method: "post"}
+            %fieldset.form-group
+              %input.form-control{type: 'text',
+                                  placeholder: 'Full name',
+                                  name: 'name',
+                                  required: true}
+            %fieldset.form-group
+              %input.form-control{type: 'text',
+                                  placeholder: 'Username',
+                                  name: 'username',
+                                  required: true}
+            %fieldset.form-group
+              %input.form-control{type: 'email',
+                                  placeholder: 'Email',
+                                  name: 'email',
+                                  required: true}
+            %fieldset.form-group
+              %input.form-control{type: 'password',
+                                  placeholder: 'Password',
+                                  name: 'password',
+                                  required: true}
+            %fieldset.form-group
+              %input.form-control{type: 'password',
+                                  placeholder: 'Password Confirm',
+                                  name: 'password_confirmation',
+                                  required: true}
+            %button.btn.btn-primary.pull-right{type: "submit"} Sign up for Chitter

@@ -1,36 +1,37 @@
-%nav.navbar.navbar-default
-  .container-fluid
-    .navbar-header
-      .navbar-brand Chitter
-    - if current_user
-      %ul.nav.navbar-nav.navbar-right
-        %li
-          %form.navbar-form{role: "search"}
-            .input-group.add-on
-              .form-group
-                %input.form-control{placeholder: "Search Chitter", type: "text"}
-                .input-group-btn
-                  %button.btn.btn-default{type: "submit"}
-                    %i.glyphicon.glyphicon-search
-        %li.dropdown
-          %a.username.dropdown-toggle{"data-toggle": "dropdown",
-                                      "aria-haspopup": "true",
-                                      "aria-expanded": "false",
-                                      href: "#",
-                                      role: "button"}
-            #{current_user.username}
-            %span.caret
-          %ul.dropdown-menu
-            %li
-              %a{href: "#"} View profile
-            %li
-              %a{href: "#"} Settings
-            %li.divider{role: "separator"}
-            %li
-              %form.navbar-form{action: "/sessions", method: "post"}
+%header
+  %nav.navbar.navbar-default
+    .container-fluid
+      .navbar-header
+        .navbar-brand Chitter
+      - if current_user
+        %ul.nav.navbar-nav.navbar-right
+          %li
+            %form.navbar-form{role: "search"}
+              .input-group.add-on
                 .form-group
-                  %input{name: "_method", type: "hidden", value: "delete"}
-                  %input{type: "submit", value: "Log out"}
-        %li
-          %p.navbar-btn
-            %a.btn.btn-primary{href: "/peeps/new", role: "button"} Write a peep
+                  %input.form-control{placeholder: "Search Chitter", type: "text"}
+                  .input-group-btn
+                    %button.btn.btn-default{type: "submit"}
+                      %i.glyphicon.glyphicon-search
+          %li.dropdown
+            %a.username.dropdown-toggle{"data-toggle": "dropdown",
+                                        "aria-haspopup": "true",
+                                        "aria-expanded": "false",
+                                        href: "#",
+                                        role: "button"}
+              #{current_user.username}
+              %span.caret
+            %ul.dropdown-menu
+              %li
+                %a{href: "#"} View profile
+              %li
+                %a{href: "#"} Settings
+              %li.divider{role: "separator"}
+              %li
+                %form.navbar-form.navbar-form--logout{action: "/sessions", method: "post"}
+                  .form-group
+                    %input{name: "_method", type: "hidden", value: "delete"}
+                    %input{type: "submit", value: "Log out"}
+          %li
+            %p.navbar-btn
+              %a.btn.btn-primary{href: "/peeps/new", role: "button"} Write a peep
