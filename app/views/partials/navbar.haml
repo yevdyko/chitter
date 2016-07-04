@@ -1,26 +1,50 @@
 %header
-  %nav.navbar.navbar-default
+  %nav.navbar.navbar-default.navbar-fixed-top
     .container-fluid
       .navbar-header
-        .navbar-brand Chitter
       - if current_user
+        %ul.nav.navbar-nav
+          %li.active
+            %a{href: "#"}
+              %span.glyphicon.glyphicon-home{"aria-hidden": "true"}
+              %span.text Home
+          %li
+            %a{href: "#"}
+              %span.glyphicon.glyphicon-bell{"aria-hidden": "true"}
+              %span.text Notifications
+          %li
+            %a{href: "#"}
+              %span.glyphicon.glyphicon-envelope{"aria-hidden": "true"}
+              %span.text Messages
+      - else
+        %ul.nav.navbar-nav
+          %li
+            %a{href: "#"}
+              %span.glyphicon.glyphicon-tree-conifer{"aria-hidden": "true"}
+              %span.text Home
+          %li
+            %a{href: "#"}
+              %span.text About
+      - if current_user
+        %span.glyphicon.glyphicon-tree-conifer.logo{"aria-hidden": "true"}
         %ul.nav.navbar-nav.navbar-right
           %li
-            %form.navbar-form{role: "search"}
+            %form.navbar-form.navbar-form--search{role: "search"}
               .input-group.add-on
                 .form-group
-                  %input.form-control{placeholder: "Search Chitter", type: "text"}
+                  %input.form-control.search-input{placeholder: "Search Chitter", type: "text"}
                   .input-group-btn
                     %button.btn.btn-default{type: "submit"}
                       %i.glyphicon.glyphicon-search
           %li.dropdown
-            %a.username.dropdown-toggle{"data-toggle": "dropdown",
+            %a.language.dropdown-toggle{"data-toggle": "dropdown",
                                         "aria-haspopup": "true",
                                         "aria-expanded": "false",
                                         href: "#",
                                         role: "button"}
-              #{current_user.username}
-              %span.caret
+              .text
+                #{current_user.username}
+                %b.caret
             %ul.dropdown-menu
               %li
                 %a{href: "#"} View profile
@@ -34,4 +58,24 @@
                     %input{type: "submit", value: "Log out"}
           %li
             %p.navbar-btn
-              %a.btn.btn-primary{href: "/peeps/new", role: "button"} Write a peep
+              %a.btn.btn-primary.btn-peep{href: "/peeps/new", role: "button"} Write a peep
+      - else
+        %ul.nav.navbar-nav.navbar-right
+          %li.dropdown
+            %a.language.dropdown-toggle{"data-toggle": "dropdown",
+                                                        "aria-haspopup": "true",
+                                                        "aria-expanded": "false",
+                                                        href: "#",
+                                                        role: "button"}
+              .text
+                %small Language:
+                %span English
+                %b.caret
+            %ul.dropdown-menu
+              %li
+                %a{href: "#"} Deutsch
+              %li
+                %a{href: "#"} Polski
+              %li
+                %a{href: "#"} Русский
+
