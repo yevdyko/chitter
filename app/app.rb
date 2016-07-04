@@ -32,7 +32,7 @@ class Chitter < Sinatra::Base
   helpers Helpers
 
   get '/' do
-    redirect to '/peeps'
+    haml :'index'
   end
 
   # start the server if ruby file executed directly

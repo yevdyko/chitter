@@ -1,5 +1,4 @@
 class Chitter < Sinatra::Base
-
   get '/users/new' do
     @user = User.new
     haml :'users/new'
@@ -14,11 +13,10 @@ class Chitter < Sinatra::Base
     if @user.save
       user = User.first(email: params[:email])
       session[:user_id] = @user.id
-      redirect to '/'
+      redirect to '/peeps'
     else
       flash.now[:errors] = @user.errors.full_messages
       haml :'users/new'
     end
   end
-
 end
