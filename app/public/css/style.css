@@ -16,6 +16,14 @@ html {
           background-size: cover;
 }
 
+.site-wrapper .container {
+  width: 838px;
+}
+
+.row .panel {
+  width: 300px;
+}
+
 /* Navbar */
 
 nav .container-fluid {
@@ -174,8 +182,7 @@ small {
 }
 
 .navbar {
-  margin-bottom: 60px;
-
+  /*margin-bottom: 60px;*/
   border-radius: 0;
 }
 
@@ -190,9 +197,10 @@ small {
 /* Logo */
 
 .logo {
-  transform: translateX(-50%);
-  left: 50%;
   position: absolute;
+  left: 50%;
+
+  transform: translateX(-50%);
 }
 
 /* Search input */
@@ -477,6 +485,54 @@ button:hover {
   border-color: #3b88c3;
   background-color: #1da1f2;
   background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.15));
+}
+
+/* Login form */
+
+.registration .panel-body--login {
+  padding-bottom: 6px;
+}
+
+.registration .checkbox {
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+.registration .separator {
+  font-weight: bold;
+
+  margin: 0 1px 0 2px;
+
+  color: #8899a6;
+}
+
+.login-form {
+  margin-right: 74px;
+}
+
+.registration .remember-forgot {
+  margin-top: 4px;
+}
+
+.registration .remember {
+  font-size: 12px;
+  color: #8899a6;
+}
+
+.registration .forgot {
+  display: inline;
+  font-size: 12px;
+  color: #1b95e0;
+}
+
+.form-inline .form-control {
+  padding-right: 0;
+  width: 100%;
+}
+
+.container {
+  margin-bottom: 60px;
+  padding-top: 117px;
 }
 
 /* Footer */
