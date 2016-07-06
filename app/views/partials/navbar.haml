@@ -37,14 +37,13 @@
                     %button.btn.btn-default{type: "submit"}
                       %i.glyphicon.glyphicon-search
           %li.dropdown
-            %a.language.dropdown-toggle{"data-toggle": "dropdown",
+            %a.username.dropdown-toggle{"data-toggle": "dropdown",
                                         "aria-haspopup": "true",
                                         "aria-expanded": "false",
                                         href: "#",
                                         role: "button"}
-              .text
-                #{current_user.username}
-                %b.caret
+              #{current_user.username}
+              %b.caret
             %ul.dropdown-menu
               %li
                 %a{href: "#"} View profile
@@ -67,10 +66,9 @@
                                                         "aria-expanded": "false",
                                                         href: "#",
                                                         role: "button"}
-              .text
-                %small Language:
-                %span English
-                %b.caret
+              %small Language:
+              %span English
+              %b.caret
             %ul.dropdown-menu
               %li
                 %a{href: "#"} Deutsch
