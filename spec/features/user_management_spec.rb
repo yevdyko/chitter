@@ -5,7 +5,9 @@ feature 'User signs up' do
   scenario 'when being a new user visiting the site' do
     user = build :user
     expect { sign_up_as user }.to change(User, :count).by(1)
-    expect(page).to have_content "Welcome, #{user.name}!"
+    within 'li.dropdown' do
+      expect(page).to have_content "#{user.username}"
+    end
     expect(User.first.email).to eq "#{user.email}"
   end
 
@@ -66,7 +68,9 @@ feature 'User logs in' do
   scenario 'with correct credentials' do
     user = create :user
     log_in_as user
-    expect(page).to have_content "Welcome, #{user.name}!"
+    within 'li.dropdown' do
+      expect(page).to have_content "#{user.username}"
+    end
   end
 
   scenario 'with incorrect credentials' do
@@ -85,6 +89,8 @@ feature 'User logs out' do
     log_in_as user
     click_button 'Log out'
     expect(page).to have_content "Goodbye, #{user.name}!"
-    expect(page).not_to have_content "Welcome, #{user.name}!"
+    within 'li.dropdown' do
+      expect(page).not_to have_content "#{user.username}"
+    end
   end
 end

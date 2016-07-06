@@ -1,0 +1,24 @@
+.col-xs-12.col-sm-5
+  .registration.panel
+    .panel-body.panel-body--login
+      %form{action: "/sessions", method: "post"}
+        .form-group
+          %input.form-control{type: "email",
+                              placeholder: "Email",
+                              name: "email",
+                              required: true}
+        .form-inline
+          %button.btn.btn-primary.pull-right{type: "submit"} Log in
+          .login-form.clearfix
+            %input.form-control.pull-left{type: "password",
+                                placeholder: "Password",
+                                name: "password",
+                                required: true}
+        .checkbox.pull-left
+          %label
+            %input{type: "checkbox",
+                   name: "remember_me"}
+            %span.remember Remember me
+          %span.separator ·
+          %a.forgot{href: "#"} Forgot password?
+
