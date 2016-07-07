@@ -1,19 +1,20 @@
-Chitter Challenge
-=================
+# Chitter
 
-[![Build Status](https://travis-ci.org/yevdyko/chitter-challenge.svg?branch=master)](https://travis-ci.org/yevdyko/chitter-challenge)  [![Coverage Status](https://coveralls.io/repos/github/yevdyko/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/yevdyko/chitter-challenge?branch=master)  [![Code Climate](https://codeclimate.com/github/yevdyko/chitter-challenge/badges/gpa.svg)](https://codeclimate.com/github/yevdyko/chitter-challenge)
+[![Build Status](https://travis-ci.org/yevdyko/chitter.svg?branch=master)](https://travis-ci.org/yevdyko/chitter)  [![Coverage Status](https://coveralls.io/repos/github/yevdyko/chitter/badge.svg?branch=master)](https://coveralls.io/github/yevdyko/chitter?branch=master)  [![Code Climate](https://codeclimate.com/github/yevdyko/chitter/badges/gpa.svg)](https://codeclimate.com/github/yevdyko/chitter)
 
 An application that allows users to post messages to a public stream. The basic requirements were that users should be able to sign up for a new account, log in or out, and post new tweets.
 
-Technologies used
------------------
+## Technologies used
 
 - Ruby using Sinatra
 - PostgreSQL database using DataMapper ORM
-- Tested with RSpec and Capybara
+- Bcrypt for secure the passwords
+- HAML as a templating engine for HTML
+- Travis CI for continious intergration
+- Time-lord gem for time expressions
+- Tested with RSpec, Capybara, FactoryGirl and Timecop
 
-User Stories
-------------
+## User Stories
 
 ```
 As a Maker
@@ -41,19 +42,15 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality:
------------------------
+## Notes on functionality:
 
 * The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
+* Peeps (posts to Chitter) have the name of the maker and their user handle.
+* You have to be logged in to see the peeps.
 * You only can peep if you are logged in.
 * In order to start a conversation as a maker I want to reply to a peep from another maker.
 
-Setup
------
+## Setup
 
 Clone the repository:
 
@@ -85,8 +82,7 @@ Launch the app:
 
 Go to your browser and open [http://localhost:9292](http://localhost:9292)
 
-Testing
--------
+## Testing
 
 Create a test database:
 
@@ -100,5 +96,4 @@ To run the tests:
 
     $ rspec
 
-Screenshots
------------
+## Screenshots
