@@ -28,6 +28,7 @@ group :test do
   gem 'coveralls', require: false
   gem 'factory_girl'
   gem 'timecop'
+  gem 'codeclimate-test-reporter', require: nil
 end
 
 group :production do

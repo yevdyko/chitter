@@ -1,7 +1,10 @@
-rvm: '2.3.0'
+language: ruby
 
-script:
-  - mkdir -p spec && bundle exec rspec spec
+rvm:
+  - 2.3.1
+
+cache:
+  bundler: true
 
 before_install:
 - sed -i '2d' Gemfile
@@ -11,3 +14,6 @@ before_install:
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
   - bundle exec rake db:auto_migrate RACK_ENV=test
+
+script:
+  - mkdir -p spec && CODECLIMATE_REPO_TOKEN=$CODECLIMATE_REPO_TOKEN bundle exec rspec spec
